@@ -216,3 +216,17 @@ body { margin: 0; padding: 0; }
 .new-room-container.hidden { max-height: 0; margin-bottom: 0; } 
 #new-room-input { width: 100%; box-sizing: border-box; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 8px; border-radius: 4px; font-family: inherit; font-size: 0.8rem; outline: none; } 
 #new-room-input:focus { border-color: #0084ff; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .app-layout { flex-direction: column; height: 100vh; margin: 0; border-radius: 0; }
+    .sidebar { width: 100%; max-height: 160px; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 15px; flex-shrink: 0; }
+    .sidebar-header { margin-bottom: 10px; }
+    .channel-list { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 5px; }
+    .channel { flex: 0 0 auto; margin-bottom: 0; padding: 6px 12px; }
+    .chat-input-area { padding: 10px; gap: 5px; }
+    #username-input { width: 80px; padding: 10px; }
+    #message-input { padding: 10px; }
+    .chat-header { padding: 10px 15px; }
+    .message { max-width: 95%; }
+}
