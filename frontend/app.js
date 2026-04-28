@@ -43,7 +43,11 @@ function renderRooms() {
             li.appendChild(delBtn);
         }
         
-        li.onclick = () => switchToRoom(room);
+        li.onclick = () => {
+            if (currentRoom !== room) {
+                switchToRoom(room);
+            }
+        };
         channelList.appendChild(li);
     });
 }
