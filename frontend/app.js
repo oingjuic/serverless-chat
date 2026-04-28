@@ -13,7 +13,7 @@ const newRoomInput = document.getElementById('new-room-input');
 
 let typingTimeout;
 let currentRoom = 'general';
-let rooms = ['general', 'study-group', 'random'];
+let rooms = ['general'];
 
 function renderRooms() {
     channelList.innerHTML = '';
