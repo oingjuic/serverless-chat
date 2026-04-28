@@ -137,32 +137,53 @@ function connect() {
 }
 
 function addMessage(sender, text, isSent) {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${isSent ? 'sent' : 'received'}`;
+    const messageRow = document.createElement('div');
+    messageRow.className = `message-row ${isSent ? 'sent' : 'received'}`;
+    
+    const displaySender = sender || 'Anonymous';
+    
+    // Avatar
+    const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(displaySender)}&background=random&color=fff&rounded=true&size=40`;
+    const avatarImg = document.createElement('img');
+    avatarImg.src = avatarUrl;
+    avatarImg.className = 'avatar';
+    
+    const messageContent = document.createElement('div');
+    messageContent.className = 'message-content';
     
     if (!isSent) {
         const senderSpan = document.createElement('span');
         senderSpan.className = 'sender-name';
-        senderSpan.textContent = sender || 'Anonymous';
-        messageDiv.appendChild(senderSpan);
+        senderSpan.textContent = displaySender;
+        messageContent.appendChild(senderSpan);
     }
 
-    const textNode = document.createTextNode(text);
-    messageDiv.appendChild(textNode);
+    const textNode = document.createElement('div');
+    textNode.className = 'message-bubble';
+    textNode.textContent = text;
+    messageContent.appendChild(textNode);
     
     const timeSpan = document.createElement('span');
     timeSpan.className = 'timestamp';
     const now = new Date();
     timeSpan.textContent = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    messageDiv.appendChild(timeSpan);
+    messageContent.appendChild(timeSpan);
     
-    chatBox.appendChild(messageDiv);
+    if (isSent) {
+        messageRow.appendChild(messageContent);
+        messageRow.appendChild(avatarImg);
+    } else {
+        messageRow.appendChild(avatarImg);
+        messageRow.appendChild(messageContent);
+    }
+    
+    chatBox.appendChild(messageRow);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function addSystemMessage(text) {
     const messageDiv = document.createElement('div');
-    messageDiv.className = 'message system-message';
+    messageDiv.className = 'system-message';
     messageDiv.textContent = text;
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
