@@ -23,7 +23,7 @@ function renderRooms() {
         li.setAttribute('data-room', room);
         
         const span = document.createElement('span');
-        span.textContent = '# ' + room;
+        span.textContent = room.charAt(0).toUpperCase() + room.slice(1);
         li.appendChild(span);
         
         if (room !== 'general') {
@@ -50,9 +50,9 @@ function renderRooms() {
 
 function switchToRoom(room) {
     currentRoom = room;
-    roomTitle.textContent = '# ' + currentRoom;
+    roomTitle.textContent = currentRoom.charAt(0).toUpperCase() + currentRoom.slice(1);
     chatBox.innerHTML = '';
-    addSystemMessage(`Joining #${currentRoom}...`);
+    addSystemMessage(`Joining ${currentRoom}...`);
     if (socket && socket.readyState === WebSocket.OPEN) {
         socket.send(JSON.stringify({ action: 'joinroom', room: currentRoom }));
     }

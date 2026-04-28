@@ -118,7 +118,7 @@ body {
     margin-bottom: 6px;
     cursor: pointer;
     color: #cbd5e1;
-    font-weight: 500;
+    font-weight: 700; letter-spacing: 0.5px;
     font-size: 0.95rem;
     transition: all 0.2s;
     border: 1px solid transparent;
@@ -192,7 +192,7 @@ body {
 #connection-status {
     font-size: 0.8rem;
     color: #94a3b8;
-    font-weight: 500;
+    font-weight: 700; letter-spacing: 0.5px;
 }
 
 /* Chat Box */
@@ -307,7 +307,7 @@ body {
     bottom: 90px;
     left: 24px;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 700; letter-spacing: 0.5px;
     color: #94a3b8;
     background: rgba(0,0,0,0.4);
     padding: 6px 16px;
