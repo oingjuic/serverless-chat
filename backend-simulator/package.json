@@ -1,0 +1,9 @@
+{
+  "name": "serverless-chat-mock",
+  "version": "1.0.0",
+  "description": "Mock backend for serverless chat",
+  "main": "server.js",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}
